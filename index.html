@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#102a43">
+<link rel="manifest" href="manifest.json">
+<title>Lokesh Test</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f7fb;color:#17202a}
+.hero{background:linear-gradient(135deg,#102a43,#1769aa);color:#fff;padding:34px 20px 55px}
+.wrap{max-width:980px;margin:auto;padding:0 15px}.logo{font-size:29px;font-weight:800}.tag{opacity:.9;margin-top:8px}
+.panel{background:#fff;border-radius:20px;margin-top:-28px;padding:22px;box-shadow:0 8px 30px #0002}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.stat{background:#f3f7fb;padding:14px;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.set{border:1px solid #dbe3ec;border-radius:15px;padding:17px;background:#fff;text-align:left}
+.set:hover{border-color:#1769aa;box-shadow:0 4px 14px #0001}.set b{font-size:18px}.pill{display:inline-block;background:#e9f3fb;color:#1769aa;padding:4px 8px;border-radius:20px;font-size:12px;margin-top:8px}
+button{width:100%;padding:12px;border:0;border-radius:9px;background:#1769aa;color:#fff;font-size:15px;margin-top:12px;cursor:pointer}
+.disabled{background:#eef1f5;color:#667085;cursor:not-allowed}.foot{color:#667085;font-size:13px;margin-top:18px;line-height:1.6}
+@media(max-width:650px){.grid{grid-template-columns:1fr 1fr}.stats{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="hero"><div class="wrap"><div class="logo">📚 Lokesh Test</div><div class="tag">आपकी Personal Rajasthan CET तैयारी</div></div></div>
+<main class="wrap">
+<div class="panel">
+<h2>नमस्ते, Lokesh 👋</h2>
+<p>Senior Secondary CET — CBT Practice Center</p>
+<div class="stats">
+<div class="stat"><b>15</b><br>Mock Sets</div>
+<div class="stat"><b>150</b><br>Questions / Set</div>
+<div class="stat"><b>180 min</b><br>Exam Timer</div>
+</div>
+<h3>Mock Test चुनें</h3>
+<div class="grid" id="sets"></div>
+<div class="foot">Set-1 अभी उपलब्ध है। बाकी सेटों में सत्यापित PYQ बैंक जोड़ा जाएगा। पुराने प्रश्नों के परीक्षा/वर्ष की जानकारी बिना सत्यापन के नहीं दिखाई जाएगी।</div>
+</div></main>
+<script>
+const el=document.getElementById('sets');
+for(let i=1;i<=15;i++){
+ const d=document.createElement('div'); d.className='set';
+ d.innerHTML=`<b>Set-${i}</b><br><span class="pill">${i===1?'150 प्रश्न तैयार':'जल्द उपलब्ध'}</span>`;
+ const b=document.createElement('button');
+ if(i===1){b.textContent='Test शुरू करें';b.onclick=()=>location.href='set1.html'}
+ else{b.textContent='Coming Soon';b.className='disabled';b.disabled=true}
+ d.appendChild(b);el.appendChild(d);
+}
+</script>
+</body></html>
